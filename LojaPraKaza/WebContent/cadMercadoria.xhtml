@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro de Mercadorias</title>
+	<link href="css/estilo.css" rel="stylesheet" />
+</h:head>
+<h:body>
+
+	<h1>Cadastro de Mercadorias</h1>
+	<h:link outcome="listMercadoria">Mercadorias</h:link>
+	<h1>
+			<small>Novas Mercadorias</small>
+		</h1>
+		<h:form>
+		<h:panelGroup rendered="#{not empty mercadoriaMB.mercadoria.idMercadoria}">
+		<div>
+					<h:outputLabel value="Código: " />
+					<h:inputText readonly="true" value="#{mercadoriaMB.mercadoria.idMercadoria}" />
+				</div>
+			</h:panelGroup>
+			<h:inputHidden value="#{mercadoriaMB.mercadoria.idMercadoria}" />
+			<div>
+				<h:outputLabel value="Nome: " />
+				<h:inputText value="#{mercadoriaMB.mercadoria.nome}" />
+			</div>
+			<div>
+				<h:outputLabel value="Categoria: " />
+				<h:inputText value="#{mercadoriaMB.mercadoria.categoria}" />
+			</div>
+			<div>
+				<h:outputLabel value="Quantidade:  " />
+				<h:inputText value="#{mercadoriaMB.mercadoria.quantidade}" />
+			</div>
+			<div>
+				<h:outputLabel value="Descrição  " />
+				<h:inputText value="#{mercadoriaMB.mercadoria.descricao}" />
+			</div>
+			
+			<div>
+				<h:outputLabel value="Valor:   " />
+				<h:inputText value="#{mercadoriaMB.mercadoria.valor}" />
+			</div>
+			<button type="reset">Restaurar</button>
+			<h:commandButton value="Salvar" action="#{mercadoriaMB.salvar()}" />
+		</h:form>
+
+</h:body>
+</html>
